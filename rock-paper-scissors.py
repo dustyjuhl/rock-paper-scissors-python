@@ -19,8 +19,16 @@ for i in range(1,4):
     print("1: Rock")
     print("2: Paper")
     print("3: Scissors")
-    user_input = input("Select your choice: ")
-    user_input = int(user_input)
+    while True:
+	    user_input = input("Select your choice: ")
+	    try:
+		user_input = int(user_input)
+		if user_input in [1,2,3]:
+		    break
+		else:
+		    print{"Invalid choice. Please enter a number between 1 and 3.")
+	    except ValueError: 
+		print("Invalid input. Please enter a valid number.")
 
 # Use the random number generator to have the computer randomly select a number between 1 and 3 (inclusive)
 computer_choice = randint(1,3)
