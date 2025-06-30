@@ -15,6 +15,7 @@ computer_score = 0
 
 # Use the For Loop to play for 3 rounds
 for i in range(1,4):
+    print(f"Round {i}")
     print("Choose the number next to your choice")
     print("1: Rock")
     print("2: Paper")
@@ -30,55 +31,34 @@ for i in range(1,4):
 	except ValueError: 
 	    print("Invalid input. Please enter a valid number.")
 
-# Use the random number generator to have the computer randomly select a number between 1 and 3 (inclusive)
-computer_choice = randint(1,3)
-winner = "";
-# Use and if-elif block to make a decision about who the winner of the round inc_score
-if computer_choice == 1:
-	print("The computer chose rock")
-	if user_input == 1:
-		winner = "none"
-	elif user_input == 2:
-		winner = name
-	elif user_input == 3:
-		winner = "computer"	
-elif computer_choice == 2:
-	print("The computer chose paper")
-	if user_input == 1:
-		winner = name
-	elif user_input == 2:
-		winner = "none"
-	elif user_input == 3:
-		winner = "computer"
-elif computer_choice == 3:
-	print("The computer chose scissors")
-	if user_input == 1:
-		winner = name
-	elif user_input == 2:
-		winner = "computer"
-	elif user_input == 3:
-		winner = "none"
-# Check if both players chose the same thing
-if winner == "none":	
-	print("It's a draw!")
-	#Student will be able to call a function 
-	user_score = inc_score(user_score)
-	computer_score = inc_score(computer_score)
-# Update the scores
-elif winner == name:
-	print("You win this round!")
-	user_score = inc_score(user_score)
-elif winner == "computer":
-	print("The computer wins this round!")
-	computer_score = inc_score(computer_score)
-# Print out the current score for that round
-	print("\nScore")
-	print("------")
-	print("You: " , user_score, "\nComputer: ",computer_score)
-	print("\n")
+    # Use the random number generator to have the computer randomly select a number between 1 and 3 (inclusive)
+    computer_choice = randint(1,3)
+    if computer_choice == 1:
+        print("The computer chose rock")
+    elif computer_choice == 2:
+        print("The computer chose paper")
+    else:
+        print("The computer chose scissors")    	    
+    winner = ""
+# 1 beats 3, 2 beats 1, 3 beats 2
+    if user_choice == computer_choice:
+        print("It's a draw!")
+    elif (user_choice == 1 and computer_choice == 3) or \
+         (user_choice == 2 and computer_choice == 1) or \
+         (user_choice == 3 and computer_choice == 2):
+        print("You win this round!")
+        user_score = inc_score(user_score)
+    else:
+        print("The computer wins this round!")
+        computer_score = inc_score(computer_score)
+        
+    print("\nScore")
+    print("------")
+    print(f"You: {user_score} \nComputer: {computer_score}\n")
+
 if computer_score > user_score:
-	print("Tough luck, the computer wins")
+    print("Tough luck, the computer wins the game")
 elif computer_score < user_score:
-	print(name + " wins!")
-elif computer_score == user_score:
-	print("It's a tie!")
+    print(f"{name} wins the game!")
+else:
+    print("It's a tie game!")
