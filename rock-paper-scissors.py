@@ -13,7 +13,7 @@ print("Let's start your game, "+name + "\n")
 user_score = 0
 computer_score = 0
 
-# Use the For Loop to play for 3 rounds
+# Play 3 rounds
 for i in range(1,4):
     print(f"Round {i}")
     print("Choose the number next to your choice")
@@ -40,7 +40,7 @@ for i in range(1,4):
     else:
         print("The computer chose scissors")    	    
     winner = ""
-# 1 beats 3, 2 beats 1, 3 beats 2
+    # 1 beats 3, 2 beats 1, 3 beats 2
     if user_choice == computer_choice:
         print("It's a draw!")
     elif (user_choice == 1 and computer_choice == 3) or \
